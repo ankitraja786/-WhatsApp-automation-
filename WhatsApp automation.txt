@@ -1,0 +1,24 @@
+from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+import time
+
+
+b = webdriver.Chrome("/Users/dell/Desktop/chromedriver")
+b.get("https://web.whatsapp.com/")
+wait =WebDriverWait(b,600)
+
+target ='" ankit "'
+string = " heiiiiii !!"
+x_arg = '//span[contains(@title,'+  target +')]'
+target = wait.until(ec.presence_of_element_located((By.XPATH,x_arg)))
+target.click()
+
+
+input_box  = b.find_element_by_class_name('_1gNA1')
+
+for i in range(7):
+    input_box.send_keys(string + Keys.ENTER)
+
